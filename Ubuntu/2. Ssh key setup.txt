@@ -1,5 +1,7 @@
 In the name of God
 
+From https://lani78.com/2008/08/08/generate-a-ssh-key-and-disable-password-authentication-on-ubuntu-server/.
+
 1. Generate keys
 ssh-keygen
 
