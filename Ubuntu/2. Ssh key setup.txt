@@ -1,0 +1,33 @@
+In the name of God
+
+1. Generate keys
+ssh-keygen
+
+2. Add the public key to the server
+scp ~/.ssh/id_rsa.pub root@104.251.217.218:~
+ssh root@104.251.217.218
+	cat ~/id_rsa.pub >> ~/.ssh/authorized_keys
+	rm ~/id_rsa.pub
+
+3. Ensure key authentication is enabled
+nano /etc/ssh/sshd_config
+
+These have to be 'yes'.
+
+RSAAuthentication yes
+PubkeyAuthentication yes
+
+service ssh reload
+
+4. Disconnect and reconnect. No password should be requested.
+
+5. Disable password authentication
+nano /etc/ssh/sshd_config
+
+These have to be 'no'.
+
+ChallengeResponseAuthentication no
+PaswordAuthentication no
+UsePAM no
+
+service ssh reload

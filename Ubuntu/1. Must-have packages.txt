@@ -1,0 +1,5 @@
+In the name of God
+
+bash-completion		(problems: 'cp /etc/skel/.bashrc ~/')
+command-not-found
+byobu
