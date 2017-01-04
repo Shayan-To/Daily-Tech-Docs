@@ -1,0 +1,11 @@
+In the name of God
+
+netstat -lpn
+ufw status numbered
+
+22		ssh
+2236		ShadowSocks
+3426		lighttp
+80		zulip http
+443		zulip https
+4369		zulip epmd (rabbitmq)
