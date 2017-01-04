@@ -14,6 +14,8 @@ While ($True)
     Write-Host
     $Path = Read-Host "Path"
 
+	$Path = $Path.Trim()
+
     If ($Path.Length -eq 0)
     {
         Break
