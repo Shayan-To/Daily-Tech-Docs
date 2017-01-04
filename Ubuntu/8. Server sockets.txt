@@ -2,6 +2,7 @@ In the name of God
 
 netstat -lpn
 ufw status numbered
+ufw reload
 
 22		ssh
 2236		ShadowSocks
@@ -9,3 +10,4 @@ ufw status numbered
 80		zulip http
 443		zulip https
 4369		zulip epmd (rabbitmq)
+6524		gitlab
