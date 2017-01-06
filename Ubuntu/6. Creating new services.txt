@@ -1,0 +1,7 @@
+In the name of God
+
+1. Create a script with the special header (see the template) which accepts at least 'start' and 'stop' arguments. Don't put '.sh' at the end.
+
+2. Register the service by running `update-rc.d SERVICE_NAME defaults`.
+
+(service and new-service are downloaded and are only there for reference)
