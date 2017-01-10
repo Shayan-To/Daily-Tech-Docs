@@ -1,0 +1,3 @@
+In the name of God
+
+Just run `sudo dpkg-reconfigure tzdata`.
