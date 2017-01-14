@@ -1,0 +1,26 @@
+In the name of God
+
+From https://blogs.msdn.microsoft.com/phkelley/2014/01/20/adding-a-corporate-or-self-signed-certificate-authority-to-git-exes-store/.
+
+1. Get the path of the original cert file by `git config http.sslCAInfo`.
+
+2. Copy that file to your profile directory by `cp /d/Program\ Files/Git/mingw64/ssl/certs/ca-bundle.crt ~`.
+
+3. Set the cert file to be used by git by `git config --global http.sslCAInfo /c/Users/Shayan/ca-bundle.crt`.
+
+4. Edit the cert file and add your cert to its end. You can also add a comment before like this (at least):
+
+```
+...
+LHbTY5xZ3Y+m4Q6gLkH3LpVHz7z9M/P2C2F+fpErgUfCJzDupxBdN49cOSvkBPB7
+jVaMaA==
+-----END CERTIFICATE-----
+
+Comment
+=======
+-----BEGIN CERTIFICATE-----
+MIIDuzCCAqOgAwIBAgIJAJIr1UKiPwCTMA0GCSqGSIb3DQEBCwUAMHQxCzAJBgNV
+...
+1klfNw+iz9XxoND2VIZX41jT8Dkjs/++AQxy4zNOz0Xpkydc38omypSK3M+TvdA=
+-----END CERTIFICATE-----
+```
