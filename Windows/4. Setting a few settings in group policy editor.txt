@@ -1,0 +1,7 @@
+In the name of God
+
+1. Computer Configuration\Administrative Templates\Windows Components\Windows Defender\Real-time Procection\Turn off real-time protection
+
+2. Computer Configuration\Administrative Templates\Windows Components\Windows Update\No auto-restart with logged on users for scheduled automatic updates installations
+
+3. User Configuration\Administrative Templates\Desktop\Turn off Aero Shake window minimizing gesture
