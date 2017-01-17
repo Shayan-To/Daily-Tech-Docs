@@ -1,0 +1,11 @@
+In the name of God
+
+From http://askubuntu.com/questions/59458/error-message-when-i-run-sudo-unable-to-resolve-host-none.
+
+1. `/etc/hostname` must only contain the computer name from 'System' in settings, 'About' page in Windows 10 (Shayan-Laptop).
+
+2. `/etc/hosts` should contain these two lines:
+```
+127.0.0.1	localhost.localdomain localhost
+127.0.1.1 Shayan-Laptop
+```

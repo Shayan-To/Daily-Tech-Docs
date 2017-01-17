@@ -1,8 +1,26 @@
+Param($Dest)
+
+If ($Dest -ne "Server" -and $Dest -ne "Local")
+{
+    Exit
+}
+
 $Server = "root@104.251.217.218"
+
+Write-Host
+If ($Dest -eq "Server")
+{
+    Write-Host "Trasfer files for server at $Server."
+}
+Else
+{
+    Write-Host "Trasfer files for local."
+}
+Write-Host
 
 While ($True)
 {
-    $SR = Read-Host "Send/Receive"
+    $SR = Read-Host "Send/Receive (R|S)"
     If ($SR -eq "S" -or $SR -eq "R")
     {
         Break
@@ -12,7 +30,7 @@ While ($True)
 While ($True)
 {
     Write-Host
-    $Path = Read-Host "Path"
+    $Path = Read-Host "Path [exit]"
 
 	$Path = $Path.Trim()
 
@@ -32,34 +50,84 @@ While ($True)
     }
     $Path = $Path.Replace("\"[0], "/"[0])
     Write-Host "Path: $Path"
-
-    $Remote = "${Server}:$Path"
-    $Local = ".$Path"
-
-    If ($SR -eq "S")
-    {
-        $Arg1 = $Local
-        $Arg2 = $Remote
-    }
-    Else
-    {
-        $Arg1 = $Remote
-        $Arg2 = $Local
-    }
+    $Path = $Path.Replace("\", "\\").Replace("'", "\'")
 
     $Commands = [System.Collections.Generic.List[String]]::New()
 
     $Parent = $Path.Substring(0, $Path.LastIndexOf("/"[0]) + 1)
+
     If ($SR -eq "S")
     {
-        $Commands.Add("ssh $Server 'mkdir -p $Parent'")
+        $Command = "mkdir -p `$'$Parent'"
+        If ($Dest -eq "Server")
+        {
+            $Command = $Command.Replace("\", "\\").Replace("'", "\'")
+            $Commands.Add("ssh $Server `$'$Command'")
+        }
+        Else
+        {
+            $Commands.Add("echo ' ' | sudo -Sp '' $Command")
+        }
     }
     Else
     {
-        $Commands.Add("mkdir -p .$Parent")
+        $Commands.Add("mkdir -p `$'.$Parent'")
     }
 
-    $Commands.Add("scp '$Arg1' '$Arg2'")
+    If ($Dest -eq "Server")
+    {
+        If ($SR -eq "S")
+        {
+            $Commands.Add("scp `$'.$Path' `$'${Server}:$Path'")
+        }
+        Else
+        {
+            $Commands.Add("scp `$'${Server}:$Path' `$'.$Path'")
+        }
+    }
+    Else
+    {
+        If ($SR -eq "S")
+        {
+            $Commands.Add("echo ' ' | sudo -Sp '' cp `$'.$Path' `$'$Path'")
+        }
+        Else
+        {
+            $Commands.Add("echo ' ' | sudo -Sp '' cp `$'$Path' `$'.$Path'")
+        }
+    }
+
+    If ($SR -eq "S")
+    {
+        If ($Dest -eq "Server")
+        {
+            $Permission = Read-Host "Permission (chmod - rwx) [nothing]"
+            $Permission = $Permission.Trim()
+        }
+        Else
+        {
+            $Permission = Read-Host "Permission (chmod - rwx) [777]"
+            $Permission = $Permission.Trim()
+            If ($Permission.Length -ne 0)
+            {
+                $Permission = "777"
+            }
+        }
+
+        If ($Permission.Length -ne 0)
+        {
+            $Command = "chmod $Permission `$'$Path'"
+            If ($Dest -eq "Server")
+            {
+                $Command = $Command.Replace("\", "\\").Replace("'", "\'")
+                $Commands.Add("ssh $Server `$'$Command'")
+            }
+            Else
+            {
+                $Commands.Add("echo ' ' | sudo -Sp '' $Command")
+            }
+        }
+    }
 
     Write-Host
     Write-Host "Commands:"
@@ -67,7 +135,7 @@ While ($True)
 
     Pause
 
-    $Commands | % {Write-Host $_; bash -c "$_"}
+    $Commands | % {Write-Host; Write-Host $_; bash -c "$_"}
 
     Write-Host
     Write-Host "-----"
