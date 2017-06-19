@@ -1,6 +1,7 @@
 In the name of God
 
-bash-completion		(problems: 'cp /etc/skel/.bashrc ~/')
+bash-completion		# problems: 'cp /etc/skel/.bashrc ~/'
 command-not-found
 byobu
-atool
+atool			# The archiver
+wajig			# The package manager
