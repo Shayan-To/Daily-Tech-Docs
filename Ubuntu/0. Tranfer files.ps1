@@ -32,7 +32,12 @@ If ($Dest -eq "Server")
 {
     Write-Host "Opening connection to the server..."
     bash -c "rm -f $SocketFile"
-    Start-Process bash -ArgumentList "-c 'ssh -N -M -o 'ServerAliveInterval=60' -o 'ControlPath=$SocketFile' $Server'" -NoNewWindow
+    Start-Job `
+    {
+        Param($Path, $SocketFile, $Server)
+        Set-Location $Path
+        bash -c "ssh -N -M -o 'ServerAliveInterval=60' -o 'ControlPath=$SocketFile' $Server"
+    } -ArgumentList $PWD, $SocketFile, $Server
 }
 
 Try
