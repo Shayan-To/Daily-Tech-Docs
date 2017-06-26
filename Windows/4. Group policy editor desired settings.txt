@@ -9,3 +9,5 @@ In the name of God
 2.1. Computer Configuration\Administrative Templates\Windows Components\Windows Update\Configure Automatic Updates
 
 3. User Configuration\Administrative Templates\Desktop\Turn off Aero Shake window minimizing gesture
+
+4. Computer Configuration\Windows Settings\Security Settings\Local Policies\User Right Assignment\Create a symbolic link (Add everyone)
