@@ -11,3 +11,4 @@ ufw reload
 443		zulip https
 4369		zulip epmd (rabbitmq)
 6524		gitlab
+9659		lounge
