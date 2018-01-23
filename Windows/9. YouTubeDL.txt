@@ -6,7 +6,7 @@ In the name of God
 2. Download libav from <http://builds.libav.org/windows/release-gpl/>.
 3. Extract libav files to a folder named `app` (so that `bin` is directly inside `app`).
 4. Move `youtube-dl.exe' to `app\bin`.
-5. Copy the configuration file (besides this file), to `app\home\youtube-dl.conf`.
+5. Copy the configuration file (beside this file), to `app\home\youtube-dl.conf`.
 6. Create `OpenPrompt.bat` with this content:
 
 ```
