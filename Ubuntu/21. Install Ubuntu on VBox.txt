@@ -1,0 +1,7 @@
+In the name of God
+
+Note: Do not enable 3D acceleration.
+
+Install build-essential and then the guest additions (Devices -> Guest Additions CD Image).
+
+For shared folders, add your user to `vboxsf` group by `sudo usermod -a -G vboxsf shayan`.

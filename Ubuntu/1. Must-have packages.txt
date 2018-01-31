@@ -5,3 +5,6 @@ command-not-found
 byobu
 atool			# The archiver
 wajig			# The package manager
+aptitude		# package manager, dependency conflict resolver
+build-essential		# gcc, make, etc.
+git
