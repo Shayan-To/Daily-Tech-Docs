@@ -1,0 +1,10 @@
+In the name of God
+
+- Cmd as admin.
+- `diskpart`
+- `select vdisk file="PATH"`
+- `attach vdisk readonly`
+- `compact vdisk`
+- `detach vidsk`
+- `exit`
+- `exit`
