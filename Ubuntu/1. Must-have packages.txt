@@ -2,7 +2,7 @@ In the name of God
 
 bash-completion		# problems: `cp /etc/skel/.bashrc ~/`
 command-not-found
-byobu			# enable by `byobu-enable`
+byobu			# enable by `byobu-enable` and disable unicode by `/usr/lib/byobu/include/toggle-utf8`.
 atool			# the archiver (suggested packages: arc arj lzip lzop nomarch p7zip-full rar rpm unace unalz unrar)
 wajig			# the package manager
 aptitude		# package manager, dependency conflict resolver
