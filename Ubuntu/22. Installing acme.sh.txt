@@ -1,0 +1,7 @@
+In the name of God
+
+From the wiki pages on acme.sh GitHub, and reading the source.
+
+- Clone the repository at `https://github.com/Neilpang/acme.sh`.
+- Switch to the repository directory and run `./acme.sh --install --nocron --home '/d/Shayan/Documents/Ubuntu/Certificates/acme.sh/'`.
+- Create `bash.sh` file in `/d/Shayan/Documents/Ubuntu/Certificates` with the content `bash --init-file "./acme.sh/acme.sh.env"`.
