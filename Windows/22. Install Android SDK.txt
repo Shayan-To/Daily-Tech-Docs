@@ -1,0 +1,14 @@
+In the name of God
+
+1. Extract `android-studio` and `tools`.
+2. Run `tools\bin\sdkmanager.bat --update --proxy=http --proxy_host=localhost --proxy_port=1080`.
+   2.1. If prompted, rename `tools` to `tools2`, and run the same command from above from there (`tools2\bin\...`).
+3. Run `tools\bin\sdkmanager.bat --list --proxy=http --proxy_host=localhost --proxy_port=1080` to see the list of available packages.
+4. Add the packages you want to a file `package_file.txt`.
+   ```
+   build-tools;27.0.1
+   platforms;android-27
+   emulator
+   patcher;v4
+   ```
+5. Run `D:\Program_Files\Android>tools\bin\sdkmanager.bat --install --proxy=http --proxy_host=localhost --proxy_port=1080 --package_file=package_file.txt` (or if stupid errors appeared, this one:`D:\Program_Files\Android>tools\bin\sdkmanager.bat --install --proxy=http --proxy_host=localhost --proxy_port=1080 build-tools;27.0.1 platforms;android-27 emulator patcher;v4`).

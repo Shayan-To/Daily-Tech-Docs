@@ -1,0 +1,10 @@
+In the name of God
+
+From https://pkisharp.github.io/ACMESharp-docs/User-Guide.html.
+
+1. Run Powershell as administrator.
+2. Run `Save-Module -Name ACMESharp -Path TEMP_DIR`.
+3. Run `Install-Module -Name ACMESharp -AllowClobber`.
+4. Exit the Powershell and run a non-elevated one.
+
+
