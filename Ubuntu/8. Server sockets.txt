@@ -6,7 +6,7 @@ ufw reload
 
 22		ssh
 2236		ShadowSocks
-3426		lighttp
+3426		lighttp (share)
 80		zulip http
 443		zulip https
 4369		zulip epmd (rabbitmq)
