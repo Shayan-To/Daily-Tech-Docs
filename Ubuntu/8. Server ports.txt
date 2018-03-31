@@ -4,7 +4,7 @@ netstat -lpn
 ufw status numbered
 ufw reload
 
-22		ssh
+2782		ssh
 2236		ShadowSocks
 3426		lighttp (share)
 80		zulip http

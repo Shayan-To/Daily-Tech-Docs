@@ -34,7 +34,7 @@ If ($Dest -ne "Server" -and $Dest -ne "Local")
     Exit
 }
 
-$Server = "root@104.251.217.218"
+$Server = "parmyn"
 $SocketFile = "/tmp/ssh_socket"
 
 Write-Host
