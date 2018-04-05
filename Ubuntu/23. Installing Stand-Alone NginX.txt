@@ -1,0 +1,17 @@
+In the name of God
+
+From <http://nginx.org/en/docs/>.
+
+1. Download nginx sources from <http://nginx.org/en/download.html> and extract it.
+
+2. Download PCRE from <http://www.pcre.org/> (version 8.41) and extract it next to nginx.
+
+3. Download zlib from <http://zlib.net/> and extract it next to the others.
+
+4. Make sure openssl and build-essential is installed.
+
+5. Run `./configure --prefix=/opt/nginx-stand-alone --with-http_ssl_module --with-pcre=../pcre-8.41 --with-zlib=../zlib-1.2.11`. (prefix is the installation directory, and must be absolute.)
+
+6. Run `make` and then `[sudo] make install`.
+
+7. g
