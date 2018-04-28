@@ -1,6 +1,6 @@
 In the name of God
 
-1. Computer Configuration\Administrative Templates\Windows Components\Windows Defender\Real-time Procection\Turn off real-time protection
+1. Computer Configuration\Administrative Templates\Windows Components\Windows Defender\Real-time Procection\Turn off real-time protection (wrong... turns something else off...)
 
 1.1. Computer Configuration\Administrative Templates\Windows Components\Windows Defender\Turn off Windows Defender
 
