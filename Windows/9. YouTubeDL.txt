@@ -10,16 +10,16 @@ In the name of God
 6. Create `OpenPrompt.bat` with this content:
 
 ```
-@CD Files
 @SET BASE_PATH=%~dp0
 @SET HOME=%BASE_PATH%app\home
 @PATH %PATH%;%BASE_PATH%app\bin
+@CD Files
 @CMD
 ```
 
 # Useful docs
 
-Download from link file: `youtube-dl --batch-file ../Links.txt`
+Download from link file: `youtube-dl --batch-file ../Links.txt` (or `-a` instead of `--batch-file`)
 
 Download from command-line: `youtube-dl <URLs>`
 
@@ -85,3 +85,5 @@ youtube-dl --proxy "http://localhost:1080" --all-subs --write-info-json --ignore
 ```
 youtube-dl --proxy "http://localhost:1080" --all-subs --write-info-json --ignore-errors --add-metadata --download-archive ../Archive.txt --output '%(title)s (%(id)s).%(ext)s' --recode-video mp4 --sub-format srt --format '%FORMAT%' <URLs>
 ```
+
+(Note that the single quotation mark might `'` not work under cmd.)
