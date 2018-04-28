@@ -17,6 +17,8 @@ In the name of God
 @CMD
 ```
 
+7. To update, use `youtube-dl -U`.
+
 # Useful docs
 
 Download from link file: `youtube-dl --batch-file ../Links.txt` (or `-a` instead of `--batch-file`)
