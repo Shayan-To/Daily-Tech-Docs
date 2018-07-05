@@ -1,0 +1,15 @@
+In the name of God
+
+- Open Fiddler.
+- Export its certificate to a file, and convert it to pem format.
+- Create a certificate bundle containing Fiddler's one.
+- Open acme.sh bash window.
+- Input these:
+
+```
+export CURL_CA_BUNDLE=/c/Users/Shayan/ca-bundle.crt
+export https_proxy=localhost:8888
+export http_proxy=localhost:8888
+`ž``
+
+- Now watch the traffic using Fiddler.

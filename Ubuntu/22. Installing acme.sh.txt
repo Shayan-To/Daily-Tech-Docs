@@ -5,4 +5,5 @@ From the wiki pages on acme.sh GitHub, and reading the source.
 - Clone the repository at `https://github.com/Neilpang/acme.sh`.
 - Checkout a release tag.
 - Switch to the repository directory, open Git Bash, and run `./acme.sh --install --nocron --home '/d/Shayan/Documents/Ubuntu/Certificates/acme.sh/' --config-home '/d/Shayan/Documents/Ubuntu/Certificates/acme-config/'`.
+- (You can do the exact above for updating as well.)
 - Create `bash.sh` file in `/d/Shayan/Documents/Ubuntu/Certificates` with the content `bash --init-file "./acme.sh/acme.sh.env"`.

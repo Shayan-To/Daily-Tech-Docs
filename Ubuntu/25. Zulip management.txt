@@ -1,0 +1,19 @@
+In the name of God
+
+- `su zulip` and then `cd ~/deployments/current`.
+
+- You can use `manage.py` to do lots of things.
+
+- `manage.py shell` is very handy to do things, like realm management.
+
+## `manage.py shell`
+
+- `Realms.objects.all()` will give you all the realms. It is a list and can be indexed.
+
+- Store an object in a variable to see its members (via tab auto-completion).
+
+- To save an objcet back to db, use `obj.save(update_fields=['prop1', 'prop2'])`.
+
+- Useful realm properties:
+
+  - string_id: the subdomain of the realm
