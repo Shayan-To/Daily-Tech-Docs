@@ -1,0 +1,81 @@
+; Domain: parmyn.org
+; Exported (y-m-d hh:mm:ss): 2018-09-23 20:39:10
+;
+; This file is intended for use for informational and archival
+; purposes ONLY and MUST be edited before use on a production
+; DNS server.
+;
+; In particular, you must update the SOA record with the correct
+; authoritative name server and contact e-mail address information,
+; and add the correct NS records for the name servers which will
+; be authoritative for this domain.
+;
+; For further information, please consult the BIND documentation
+; located on the following website:
+;
+; http://www.isc.org/
+;
+; And RFC 1035:
+;
+; http://www.ietf.org/rfc/rfc1035.txt
+;
+; Please note that we do NOT offer technical support for any use
+; of this zone data, the BIND name server, or any other third-
+; party DNS software.
+;
+; Use at your own risk.
+
+
+; SOA Record
+parmyn.org.	600	 IN 	SOA	ns73.domaincontrol.com.	dns.jomax.net. (
+					2018070732
+					28800
+					7200
+					604800
+					600
+					) 
+
+; A Records
+@	3600	 IN 	A	104.251.217.218
+*	3600	 IN 	A	104.251.217.218
+
+; CNAME Records
+7931171	3600	 IN 	CNAME	sendgrid.net.
+em6273	3600	 IN 	CNAME	u7931171.wl172.sendgrid.net.
+email	3600	 IN 	CNAME	sendgrid.net.
+email.mail	3600	 IN 	CNAME	mailgun.org.
+ftp	3600	 IN 	CNAME	@
+link.mail2	3600	 IN 	CNAME	track.smtp2go.com.
+s1._domainkey	3600	 IN 	CNAME	s1.domainkey.u7931171.wl172.sendgrid.net.
+s2._domainkey	3600	 IN 	CNAME	s2.domainkey.u7931171.wl172.sendgrid.net.
+s437397._domainkey.mail2	3600	 IN 	CNAME	dkim.smtp2go.net.
+url1593	3600	 IN 	CNAME	sendgrid.net.
+url3558	3600	 IN 	CNAME	sendgrid.net.
+www	3600	 IN 	CNAME	@
+_domainconnect	3600	 IN 	CNAME	_domainconnect.gd.domaincontrol.com.
+
+; MX Records
+@	3600	 IN 	MX	10	mx.sendgrid.net.
+em9774	3600	 IN 	MX	10	mx.sendgrid.net.
+mail	3600	 IN 	MX	10	mxa.mailgun.org.
+mail	3600	 IN 	MX	10	mxb.mailgun.org.
+mail2	3600	 IN 	MX	10	mxa.mailgun.org.
+mail2	3600	 IN 	MX	10	mxb.mailgun.org.
+
+; TXT Records
+em9774	3600	 IN 	TXT	"v=spf1 include:sendgrid.net ~all"
+krs._domainkey.mail	3600	 IN 	TXT	"k=rsa; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDRZ4IByMmo+W39igoUy5Q6Zb3OfjU5ixr/NVs2k62ShGfHfV8ksN6yIqZ56dTtdb51wd0YeMmh7dMajwA6a8AaqyUWGwW7DgNwOC7ruOkAxLODzVAEAWi3B6M84vpa6IqM3q1sxdhoyBH7brtKyEmB3aTyr5uJW80expG/CN7H9QIDAQAB"
+m1._domainkey	3600	 IN 	TXT	"k=rsa; t=s; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDIGbE44KKLVfs3+jlqHRy2WVgcU+V3iXBVSH6aaumqk8D3RMcl8TwOXs7hLo3CTZPmMNwUSAULcvYM6lVW8aCayIvyzgiz0OQH3H5yosr2A1jVO6BCFUHx3jK8xxfcDkbKeh1Fy0IISb2Ofi8xJ3+VUIGcK4y6UjaeustLsoD9QwIDAQAB"
+mail	3600	 IN 	TXT	"v=spf1 include:mailgun.org ~all"
+mail2	3600	 IN 	TXT	"v=spf1 include:spf.smtp2go.com ?all"
+
+; SRV Records
+
+; AAAA Records
+
+; CAA Records
+
+; NS Records
+@	3600	 IN 	NS	ns73.domaincontrol.com.
+@	3600	 IN 	NS	ns74.domaincontrol.com.
+
