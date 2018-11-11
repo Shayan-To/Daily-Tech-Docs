@@ -10,6 +10,6 @@ In the name of God
 
 3. User Configuration\Administrative Templates\Desktop\Turn off Aero Shake window minimizing gesture
 
-4. Computer Configuration\Windows Settings\Security Settings\Local Policies\User Right Assignment\Create a symbolic link (Add everyone)
+4. Computer Configuration\Windows Settings\Security Settings\Local Policies\User Right Assignment\Create a symbolic link (Add everyone and yourself)
 
 5. Computer Configuration\Administrative Templates\System\Filesystem\Enable Win32 long paths

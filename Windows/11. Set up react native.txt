@@ -1,0 +1,52 @@
+In the name of God
+
+From:
+- https://facebook.github.io/react-native/docs/getting-started.html
+- https://facebook.github.io/react-native/docs/debugging.html
+- https://facebook.github.io/react-native/docs/signed-apk-android.html
+- https://github.com/zulip/zulip-mobile/blob/master/docs/howto/editor.md
+- https://github.com/zulip/zulip-mobile/blob/master/docs/howto/debugging.md
+
+# Installation
+
+- Install Android SDK, Node 8+, Python 2.7+ and JDK 8+.
+- Install some global node packages by:
+  - `npm install -g react-native-cli` (react-native.cmd)
+  - `npm install -g react-devtools` (react-devtools.cmd)
+- Make sure your android sdk has the following packages:
+  - Android 6.0 (Marshmallow)
+    - Google APIs
+    - Android SDK Platform 23
+    - Intel x86 Atom_64 System Image
+    - Google APIs Intel x86 Atom_64 System Image
+  - Android SDK Build-Tools
+    - 23.0.1 (not higher)
+- Set the following environment variables:
+  - ANDROID_HOME => the base sdk directory (where `build-tools` resides)
+  - JAVA_HOME => the base JDK directory (where `bin` resides)
+- Add the following to your path:
+  - %ANDROID_HOME%\build-tools\23.0.1
+  - %ANDROID_HOME%\emulator
+  - %ANDROID_HOME%\platform-tools
+  - %ANDROID_HOME%\tools\bin
+
+# VSCode setup
+
+- Install these extensions:
+  - React Native Tools (vsmobile.vscode-react-native)
+  - Flow Language Support (flowtype.flow-for-vscode)
+  - ESLint (dbaeumer.vscode-eslint)
+    - You also have to install ESLint by `npm install -g eslint`.
+  - Prettier - Code formatter (esbenp.prettier-vscode)
+
+# Useful commands
+
+- Run the application: `react-native run-android` (Ma)
+- Press `Ctrl+M` or run `adb shell input keyevent 82` to open in-app developer menu.
+- Press `R` twice to reload the js files.
+- You can navigate to `http://localhost:8081/debugger-ui` from a Chrome browser so that the js code is run in the browser.
+  - Set 'Pause on caught exceptions'.
+- Run `react-devtools` to have an inspector. (It integrates with the inspector inside the in-app developer menu.)
+  - The selected item will be available as the variable `$r` in the Chrome console (in `http://localhost:8081/debugger-ui`).
+- Access console logs: `adb logcat *:S ReactNative:V ReactNativeJS:V`
+- To make a release apk, run `yarn build:android`.

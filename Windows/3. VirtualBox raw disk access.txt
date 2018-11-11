@@ -2,6 +2,8 @@ In the name of God
 
 From http://www.serverwatch.com/server-tutorials/using-a-physical-hard-drive-with-a-virtualbox-vm.html.
 
+0. See the number of the disk in disk management.
+
 1. Open an elevated cmd to `D:\Program Files\Oracle\VirtualBox`.
 
 2. Run `VBoxManage internalcommands createrawvmdk -filename "D:\Temp\RawDisk1.vmdk" -rawdisk \\.\PhysicalDrive1`.
