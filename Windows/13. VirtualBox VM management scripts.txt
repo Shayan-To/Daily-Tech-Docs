@@ -1,0 +1,21 @@
+In the name of God
+
+Run VM in headless mode. The console window is the headless box.
+
+    "D:\Program Files\Oracle\VirtualBox\VBoxHeadless.exe" --comment Ubuntu --startvm f23d7e45-60b1-416e-bbd5-e93bb85b3a67 --vrde config "--sup-hardening-log=D:\Shayan\VirtualBox VMs\Ubuntu\Logs\VBoxHardening.log"
+
+Start the VM in normal mode. It will open up the VBox VM window.
+
+    "D:\Program Files\Oracle\VirtualBox\VBoxManage.exe" startvm f23d7e45-60b1-416e-bbd5-e93bb85b3a67
+
+Start the VM in headless mode. No window will remain open.
+
+    "D:\Program Files\Oracle\VirtualBox\VBoxManage.exe" startvm f23d7e45-60b1-416e-bbd5-e93bb85b3a67 --type headless
+
+Save the VM state and turn it off.
+
+    "D:\Program Files\Oracle\VirtualBox\VBoxManage.exe" controlvm f23d7e45-60b1-416e-bbd5-e93bb85b3a67 savestate
+
+Connect to the VM using ssh.
+
+    "D:\Program Files\Git\git-bash.exe" -c "ssh shayan@localhost"
