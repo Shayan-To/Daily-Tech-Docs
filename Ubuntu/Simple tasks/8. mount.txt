@@ -1,0 +1,5 @@
+In the name of God
+
+- To mount a drive or file, run `sudo mkdir /mnt/drive` and then `sudo mount /dev/sda1 /mnt/drive`.
+- Use `mount -r ...` (equivalent to `--read-only`), to mount as read-only. It does `-o ro` (in contrast to `-o rw`).
+- Use `sudo umount /mnt/drive` to unmount.

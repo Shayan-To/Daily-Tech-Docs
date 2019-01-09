@@ -1,0 +1,9 @@
+In the name of God
+
+- Use `boot-repair`.
+- To install it, add the apt repo by `add-apt-repository ppa:yannubuntu/boot-repair`. (Then `update` and `install boot-repair`.)
+- Run it, go to advanced mode, and enjoy!
+
+Note: You must be booted in UEFI mode to be able to make an EFI boot partition.
+
+Note: In EFI, you can simply use copy-and-paste operations in the efi partition. You can boot it by going to the manual boot of the system.
