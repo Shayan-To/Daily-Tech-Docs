@@ -1,0 +1,17 @@
+In the name of God
+
+From the man of byobu.
+
+Edit `~/.byobu/windows.tmux` to configure the initial state that byobu start to.
+Use `new-session bash` at the beginning, and then some lines of `new-window -n title command`.
+You can find the docs and switches in the man of tmux.
+
+Use `-L name` to create a named session.
+`byobu -L shayan new`
+`byobu -L shayan attach`
+
+Use this to open windows in the newly created named session:
+`byobu -L shayan new ";" new-window -n title sudo -s`
+
+Use `-t` on ssh to give it the argument:
+`ssh user@server -p port -t 'byobu -L shayan attach'`
