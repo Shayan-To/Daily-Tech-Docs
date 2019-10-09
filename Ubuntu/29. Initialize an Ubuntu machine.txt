@@ -1,0 +1,63 @@
+In the name of God
+
+# Configure local settings repo
+
+- Create a folder in this repo named `Server-XXXX#`.
+- Copy `Transfer.bat` to this folder, and modify it to use the server.
+- (Don't forget to use this folder for any configuration.)
+
+# Ssh
+
+- Set up ssh rsa key. ([steps](2. Ssh key setup.txt))
+- Configure local ssh to use ssh more conveniently.
+- (Optionally, change `Transfer.bat` to use the new server nick-name.)
+
+# Install packages
+
+- Install the [must-have packages](1. Must-have packages.txt).
+- Install and enable Byobu in particular, and disable its unicode.
+
+# Mount points
+
+- `/etc/fstab` stores the default mount points of the system.
+
+# Swap
+
+From https://www.digitalocean.com/community/tutorials/how-to-add-swap-space-on-ubuntu-16-04.
+
+- `free` shows the amout of memory and swap available.
+- `swapon --show` lists the available swap files or devices.
+- `swapon <path>` will set the system to use the file or device as swap.
+- `swapoff <name>` will unset the swap from system.
+- To set a file as swap, first create one by `falloc -l 5G /swap.img`.
+- Then format it as swap by `mkswap <path>`.
+- Then use `swapon` to enable it.
+- Then add it to `/etc/fstab` like this: `/swap.img	none	swap	sw	0	0`
+
+# Grub
+
+- Use `boot-repair`.
+- To install it, add the apt repo by `add-apt-repository ppa:yannubuntu/boot-repair`. (Then `update` and `install boot-repair`.)
+- Run it, go to advanced mode, and enjoy!
+
+Note: You must be booted in UEFI mode to be able to make an EFI boot partition.
+
+Note: In EFI, you can simply use copy-and-paste operations in the efi partition. You can boot it by going to the manual boot of the system.
+
+# VirtualBox
+
+- Configuration:
+  - Do not enable 3D acceleration.
+  - Make sure that the architecture is selected correctly in Settings > General > Basic > Version.
+- Guest additions:
+  - Install `build-essential` package from the package manager.
+  - Insert the guest additions disk (Devices > Guest Additions CD Image).
+  - Mount the cd-rom by `sudo mount /dev/cdrom /media/cdrom`.
+  - Install by `sudo ./VBoxLinuxAdditions.run`.
+- Shared folders:
+  - Add your user to `vboxsf` group by `sudo usermod -a -G vboxsf shayan`.
+- Ssh:
+  - From https://unix.stackexchange.com/questions/145997/trying-to-ssh-to-local-vm-ubuntu-with-putty.
+  - Install OpenSSH (server and client).
+  - Forward port 22 of the host to port 22 of the guest.
+  - Ssh to `shayan@localhost`.
