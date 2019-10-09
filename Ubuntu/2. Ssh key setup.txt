@@ -11,6 +11,9 @@ ssh root@104.251.217.218
 	cat ~/id_rsa.pub >> ~/.ssh/authorized_keys
 	rm ~/id_rsa.pub
 
+Or easier:
+cat ~/.ssh/id_rsa.pub | ssh root@104.251.217.218 'cat - >> ~/.ssh/authorized_keys'
+
 3. Ensure key authentication is enabled
 nano /etc/ssh/sshd_config
 
