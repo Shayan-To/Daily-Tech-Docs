@@ -6,6 +6,7 @@ From https://lani78.com/2008/08/08/generate-a-ssh-key-and-disable-password-authe
 ssh-keygen
 
 2. Add the public key to the server
+The hard way:
 scp ~/.ssh/id_rsa.pub root@104.251.217.218:~
 ssh root@104.251.217.218
 	cat ~/id_rsa.pub >> ~/.ssh/authorized_keys
