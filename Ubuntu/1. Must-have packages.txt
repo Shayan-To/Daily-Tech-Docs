@@ -11,3 +11,4 @@ git
 openssh-server
 openssh-client
 ncdu
+python-is-python3
