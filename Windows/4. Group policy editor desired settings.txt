@@ -2,14 +2,16 @@ In the name of God
 
 0. Go to Windows Security, Virus and threat protection, Manage settings, and disable Tamper protection.
 
-1. Computer Configuration\Administrative Templates\Windows Components\Windows Defender\Turn off Windows Defender
+1. Computer Configuration\Administrative Templates\System\Filesystem\Enable Win32 long paths
 
-2. Computer Configuration\Administrative Templates\Windows Components\Windows Update\No auto-restart with logged on users for scheduled automatic updates installations
+2. Computer Configuration\Administrative Templates\Windows Components\Windows Defender\Turn off Windows Defender
 
-2.1. Computer Configuration\Administrative Templates\Windows Components\Windows Update\Configure Automatic Updates
+3. Computer Configuration\Administrative Templates\Windows Components\Windows Update\No auto-restart with logged on users for scheduled automatic updates installations
 
-3. User Configuration\Administrative Templates\Desktop\Turn off Aero Shake window minimizing gesture
+3.1. Computer Configuration\Administrative Templates\Windows Components\Windows Update\Configure Automatic Updates
 
 4. Computer Configuration\Windows Settings\Security Settings\Local Policies\User Right Assignment\Create a symbolic link (Add everyone and yourself)
 
-5. Computer Configuration\Administrative Templates\System\Filesystem\Enable Win32 long paths
+5. User Configuration\Administrative Templates\Desktop\Turn off Aero Shake window minimizing gesture
+
+6. User Configuration\Administrative Templates\Windows Component\Attachment Manager\Do not preserve zone information in file attachments
