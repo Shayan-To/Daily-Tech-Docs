@@ -7,13 +7,13 @@ ssh-keygen
 
 2. Add the public key to the server
 The hard way:
-scp ~/.ssh/id_rsa.pub root@104.251.217.218:~
-ssh root@104.251.217.218
+scp ~/.ssh/id_rsa.pub parmyn:~
+ssh parmyn
 	cat ~/id_rsa.pub >> ~/.ssh/authorized_keys
 	rm ~/id_rsa.pub
 
 Or easier:
-cat ~/.ssh/id_rsa.pub | ssh root@104.251.217.218 'cat - >> ~/.ssh/authorized_keys'
+cat ~/.ssh/id_rsa.pub | ssh parmyn 'cat - >> ~/.ssh/authorized_keys'
 
 3. Ensure key authentication is enabled
 nano /etc/ssh/sshd_config

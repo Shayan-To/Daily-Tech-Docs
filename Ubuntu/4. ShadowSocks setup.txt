@@ -1,0 +1,16 @@
+In the name of God
+
+From https://github.com/shadowsocks/shadowsocks/tree/master.
+
+- Install ShadowSocks:
+
+    apt-get install python-pip
+    pip install git+https://github.com/shadowsocks/shadowsocks.git@master
+
+- Create configuration file at `/etc/shadowsocks.json`. [docs](https://github.com/shadowsocks/shadowsocks/wiki/Configuration-via-Config-File)
+
+- Test:
+
+    ssserver -c /etc/shadowsocks.json
+
+- Create init.d service. (See `/etc/init.d`)
