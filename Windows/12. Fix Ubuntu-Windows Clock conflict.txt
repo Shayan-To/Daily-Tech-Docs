@@ -1,0 +1,13 @@
+In the name of God
+
+From http://ubuntuhandbook.org/index.php/2016/05/time-differences-ubuntu-1604-windows-10/.
+
+# Make Ubuntu assume local time
+
+- Run `timedatectl set-local-rtc 1 --adjust-system-clock`.
+- To see whether it worked, `timedatectl`.
+- To set back to UTC, `timedatectl set-local-rtc 0`.
+
+# Make Windows assume UTC
+
+- Add a registry key by running `Reg add HKLM\SYSTEM\CurrentControlSet\Control\TimeZoneInformation /v RealTimeIsUniversal /t REG_QWORD /d 1`. (If Windows is 32-bit, use `REG_DWORD` instead of `REG_QWORD`.)

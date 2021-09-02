@@ -1,0 +1,15 @@
+In the name of God
+
+From http://www.serverwatch.com/server-tutorials/using-a-physical-hard-drive-with-a-virtualbox-vm.html.
+
+0. See the number of the disk in disk management.
+
+1. Open an elevated cmd to `D:\Program Files\Oracle\VirtualBox`.
+
+2. Run `VBoxManage internalcommands createrawvmdk -filename "D:\Temp\RawDisk1.vmdk" -rawdisk \\.\PhysicalDrive1`.
+
+   - If you only want a selection of the partitions, Run `žVBoxManage internalcommands listpartitions -rawdisk \\.\PhysicalDrive1` to see the partition list, and add `-partitions 6,7` to the command above.
+
+3. Run VirtualBox as administrator (it needs raw access to hard disk, so has to be elevated) and create a VM having the disk.
+
+4. File, Media Manager, and create a copy of the disk (VHD is more universal).

@@ -1,0 +1,5 @@
+In the name of God
+
+From http://stackoverflow.com/questions/22890897/getting-git-gui-to-ignore-space-changes-in-its-diff-view.
+
+Options, Additional Diff Parameters, `--ignore-all-space`.
