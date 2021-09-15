@@ -1,0 +1,8 @@
+#!/bin/bash
+
+NONGIT_OK=1
+
+. git-sh-setup
+
+set > "/tmp/env.txt"
+git_editor "/tmp/env.txt"

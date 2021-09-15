@@ -1,0 +1,75 @@
+#!/bin/bash
+
+USAGE="<file-path>"
+SUBDIRECTORY_OK=1
+
+. git-sh-setup
+
+require_work_tree_exists
+
+init()
+{
+	working_dir="$(git rev-parse --show-toplevel)"
+	prefix_dir="$(git rev-parse --show-prefix)"
+	temp_dir="$GIT_DIR/edit-index-temp"
+
+	[ "${file:0:2}" = "./" ] && file="${file:2}"
+	file_name="${file##*/}"
+
+	[ -e "$temp_dir" ] && {
+		clean_up || die "Error cleaning up the previously created temporary directory."
+	}
+
+	mkdir "$temp_dir" || die "Error creating the temporary directory."
+}
+
+edit_index()
+{
+	git-cat-file blob ":./$file" > "$temp_dir/$file_name" || {
+		clean_up
+		die "Error reading the file from index."
+	}
+
+	git_editor "$temp_dir/$file_name" || die "Error opening the editor."
+
+	[ -e "./$file" ] \
+		&& exists=1 \
+		|| exists=0
+
+	[ $exists = 1 ] && {
+		cp "./$file" "$temp_dir/$file_name.orig" || die "Error making a backup from the original file."
+	}
+	cp -f "$temp_dir/$file_name" "./$file" || die "Error replacing the changed file."
+
+	git-add "./$file" || die "Error staging the change."
+
+	[ $exists = 1 ] && {
+		cp "$temp_dir/$file_name.orig" "./$file" || die "Error reverting the working tree."
+	}
+	[ $exists = 0 ] && {
+		rm "./$file" || die "Error reverting the working tree."
+	}
+}
+
+clean_up()
+{
+	rm -rf "$temp_dir" || die "Error cleaning up the temporary directory."
+}
+
+main()
+{
+	case "$#" in
+	1)
+		file="$1"
+		init
+		# trap clean_up EXIT
+		edit_index && \
+			clean_up # if an error happens, this should not be called, so nothing is deleted.
+		;;
+	*)
+		usage
+		;;
+	esac
+}
+
+main "$@"

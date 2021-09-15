@@ -1,0 +1,9 @@
+#!/bin/bash
+
+nohup git gui    > /dev/null 2>&1 &
+nohup gitk --all > /dev/null 2>&1 &
+
+git submodule foreach --quiet --recursive "\
+	nohup git gui    > /dev/null 2>&1 & \
+	nohup gitk --all > /dev/null 2>&1 & \
+"

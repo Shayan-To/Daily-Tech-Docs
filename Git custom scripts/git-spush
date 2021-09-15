@@ -1,0 +1,11 @@
+#!/bin/bash
+
+[ -z "$(git status --untracked-files=no --porcelain)" ] || {
+	echo "Working directory not clean."
+	exit 2
+}
+
+git set-branch
+#git push --recurse-submodules=on-demand
+git submodule foreach --recursive git push --no-recurse-submodules "$@"
+git push --no-recurse-submodules "$@"

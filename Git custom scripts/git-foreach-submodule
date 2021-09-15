@@ -1,0 +1,9 @@
+#!/bin/bash
+
+export rpath="$rpath${rpath:+/}$sm_path"
+
+git submodule foreach -q "git foreach-submodule \"$*\""
+
+[ "$GIT_QUIET" != "1" ] && echo
+[ "$GIT_QUIET" != "1" ] && echo "Running ${name:+in submodule }${name:-in root}${rpath:+ (}$rpath${rpath:+)}"
+eval "$*"

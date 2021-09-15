@@ -1,0 +1,13 @@
+#!/bin/bash
+
+export GIT_QUIET=1
+
+git foreach-submodule "\
+	git commit --allow-empty --no-verify -m tmp-index && \
+	git add --all && \
+	git commit --allow-empty --no-verify -m tmp \
+"
+git foreach-submodule "\
+	git reset -q HEAD^ && \
+	git reset --soft -q HEAD^ \
+"

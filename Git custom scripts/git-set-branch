@@ -1,0 +1,29 @@
+#!/bin/bash
+
+recursive=1
+#recursive=0
+#[ "$1" -eq "--recursive" ] && {
+#	recursive=1
+#	shift
+#}
+
+skip_current=0
+name="$1"
+
+[ "$1" = "-s" ] && { skip_current=1 ; name="$2" ; }
+[ "$2" = "-s" ] && skip_current=1
+
+[ "$name" = "" ] && { name="$(git symbolic-ref HEAD)" || exit 1 ; }
+[ "${name:0:11}" != "refs/heads/" ] && name="refs/heads/$name"
+
+echo "Setting branch to ${name:11}..."
+
+[ $skip_current = 0 ] && \
+git branch -f "${name:11}" && \
+git symbolic-ref HEAD "$name"
+
+[ $recursive = 1 ] && git submodule foreach --quiet --recursive "\
+	git branch -f \"${name:11}\" && \
+	git symbolic-ref HEAD \"$name\" \
+	|| : \
+"

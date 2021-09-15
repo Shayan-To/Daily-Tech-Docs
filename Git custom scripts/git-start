@@ -1,0 +1,4 @@
+#!/bin/bash
+
+nohup git gui                                           > /dev/null 2>&1 &
+nohup gitk --branches --tags --remotes HEAD --max-count=1000 > /dev/null 2>&1 &

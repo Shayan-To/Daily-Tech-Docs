@@ -1,0 +1,7 @@
+#!/bin/bash
+
+git commit --allow-empty --no-verify -m tmp-index
+git add --all
+git commit --allow-empty --no-verify -m tmp
+git reset -q HEAD^
+git reset --soft -q HEAD^

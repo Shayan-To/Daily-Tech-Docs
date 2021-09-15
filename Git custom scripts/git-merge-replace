@@ -1,0 +1,57 @@
+#!/bin/bash
+
+USAGE="<commit>"
+SUBDIRECTORY_OK=1
+
+. git-sh-setup
+
+init()
+{
+	:
+}
+
+merge_replace()
+{
+	[ -z "$(git-status --porcelain)" ] || die "Error: Working directory is not clean.
+Commit or stash changes and retry the command."
+
+	tree="$(git-cat-file commit "$commit" | head -1)" || die "Error reading the commit '$commit'."
+	tree="${tree##tree }"
+
+	echo "Update to '$commit'." > "$GIT_DIR/COMMIT_EDITMSG" || die "Error updating the commit message file."
+	echo "" >> "$GIT_DIR/COMMIT_EDITMSG"
+	echo "# Please enter a commit message to explain why this merge is necessary," >> "$GIT_DIR/COMMIT_EDITMSG"
+	echo "# especially if it merges an updated upstream into a topic branch." >> "$GIT_DIR/COMMIT_EDITMSG"
+	echo "#" >> "$GIT_DIR/COMMIT_EDITMSG"
+	echo "# Lines starting with '#' will be ignored, and an empty message aborts" >> "$GIT_DIR/COMMIT_EDITMSG"
+	echo "# the commit." >> "$GIT_DIR/COMMIT_EDITMSG"
+
+	git_editor "$GIT_DIR/COMMIT_EDITMSG" || die "Error opening the editor."
+	
+	commit_message="$(cat $GIT_DIR/COMMIT_EDITMSG | sed '/^#/d')"
+
+	created_commit=$(git-commit-tree -p HEAD -p "$commit" -m "$commit_message" "$tree") || die "Error creating commit."
+	git-reset --hard "$created_commit" || die "Error reseting HEAD."
+}
+
+clean_up()
+{
+	:
+}
+
+main()
+{
+	case "$#" in
+	1)
+		commit="$1"
+		init
+		trap clean_up EXIT
+		merge_replace
+		;;
+	*)
+		usage
+		;;
+	esac
+}
+
+main "$@"

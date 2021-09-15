@@ -1,0 +1,15 @@
+--- /mingw64/share/git-gui/lib/database.tcl	2021-08-17 09:40:28.000000000 +0430
++++ /mingw64/share/git-gui/lib/database.tcl	2021-09-14 23:21:17.730980200 +0430
+@@ -90,10 +90,10 @@
+ 
+ proc hint_gc {} {
+ 	set ndirs 1
+-	set limit 8
++	set limit 80
+ 	if {[is_Windows]} {
+ 		set ndirs 4
+-		set limit 1
++		set limit 10
+ 	}
+ 
+ 	set count [llength [glob \

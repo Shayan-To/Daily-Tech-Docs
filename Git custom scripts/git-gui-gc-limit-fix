@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Backing knowlodge from https://stackoverflow.com/questions/1106529/how-to-skip-loose-object-popup-when-running-git-gui
+
+scriptdir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+patch -p0 -bui "$scriptdir/git-gui-gc-limit-fix.patch"
+
+read -rsn 1 -p "Press any key to continue..."

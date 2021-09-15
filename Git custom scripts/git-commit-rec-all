@@ -1,0 +1,8 @@
+#!/bin/bash
+
+export GIT_QUIET=1
+
+git foreach-submodule "\
+	git add --all && \
+	git commit --allow-empty --no-verify -m tmp \
+"
