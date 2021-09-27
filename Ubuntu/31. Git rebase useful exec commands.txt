@@ -1,0 +1,3 @@
+x git commit --amend --no-edit --reset-author
+x git commit --amend --no-edit --author='MohammadAmin‌ Raeisi <mohammadaminraeisi@outlook.com>'
+x git reset --hard && npm i && git reset --hard && npm i && npx tsc -b && npm run pretty-check:all && echo good
