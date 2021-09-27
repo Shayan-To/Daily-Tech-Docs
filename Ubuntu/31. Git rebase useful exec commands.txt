@@ -1,3 +1,14 @@
+In the name of God
+
+When doing an interactive rebase, you can put an 'exec' command between the commit lines and it will be executed.
+
+These are some that I ended up using often:
+
+Change the commit author to me:
 x git commit --amend --no-edit --reset-author
+
+Change the author to someone else:
 x git commit --amend --no-edit --author='MohammadAmin‌ Raeisi <mohammadaminraeisi@outlook.com>'
+
+Run an unnecessarily complicated build and formatting check: (I ran this on all of the commits to make sure they're all good!)
 x git reset --hard && npm i && git reset --hard && npm i && npx tsc -b && npm run pretty-check:all && echo good
