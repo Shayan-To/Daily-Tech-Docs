@@ -1,0 +1,24 @@
+In the name of God
+
+Install: (From https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse)
+
+- Open "Optional features" (modern app) or "Turn Windows features on or off" (old-style).
+- Install "OpenSSH Server" and "OpenSSH Client".
+- Make sure firewall is configured (default rule name is "OpenSSH-Server-In-TCP").
+
+> This can also be done by running
+> `Get-WindowsCapability -Online | ? Name -Match OpenSSH`
+> and then using `Add-WindowsCapability`. (see the link above)
+
+
+Configure: (From https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_server_configuration)
+
+- Default shell:
+  ```
+  Get-ItemProperty -Path "HKLM:\SOFTWARE\OpenSSH"
+  New-ItemProperty -Path "HKLM:\SOFTWARE\OpenSSH" -Name DefaultShell -Value "C:\Program Files\PowerShell\7\pwsh.exe" -PropertyType String -Force
+  ```
+- Config file is at `%ProgramData%\ssh\sshd_config` (If not, restart the `sshd` service).
+  - Setup the public key authentication.
+    - `PubkeyAuthentication yes` and `PasswordAuthentication no`
+    - By default, the public keys need to be in `~/.ssh/authorized_keys`. (path is on `AuthorizedKeysFile`)
