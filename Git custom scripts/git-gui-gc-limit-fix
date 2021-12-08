@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Backing knowlodge from https://stackoverflow.com/questions/1106529/how-to-skip-loose-object-popup-when-running-git-gui
+# Backing knowledge from https://stackoverflow.com/questions/1106529/how-to-skip-loose-object-popup-when-running-git-gui
 
 scriptdir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
