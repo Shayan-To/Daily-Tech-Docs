@@ -1,0 +1,17 @@
+In the name of God
+
+More info: https://www.hanselman.com/blog/how-to-ssh-into-wsl2-on-windows-10-from-an-external-machine
+
+1. Create a new WSL distro.
+   - You may want to export the current, unregister it, and then install a new one.
+   - Afterwards, export it again, unregister, and import everything to their good locations.
+2. Configure the WSL distro.
+   - Create `/etc/wsl.conf`. (https://docs.microsoft.com/en-us/windows/wsl/wsl-config)
+      - You should not disable `generateResolvConf` or DNS won't work.
+   - Create `~/.wslconfig` form Windows (not in WSL).
+      - You need `localhostForwarding` (enabled by default).
+3. Install and configure `sshd`. (port: 7429)
+4. Forward the local port so it is accessible from outside. (from port 7425)
+   - `netsh interface portproxy add v4tov4 listenaddress=0.0.0.0 listenport=7425 connectaddress=127.0.0.1 connectport=7429`
+   - `netsh interface portproxy show all`
+5. Open firewall on the port.
