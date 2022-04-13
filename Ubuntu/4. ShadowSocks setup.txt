@@ -13,4 +13,7 @@ From https://github.com/shadowsocks/shadowsocks/tree/master.
 
     ssserver -c /etc/shadowsocks.json
 
-- Create init.d service. (See `/etc/init.d`)
+- Optimize by following https://github.com/shadowsocks/shadowsocks/wiki/Optimizing-Shadowsocks. (Doing the first part, creating `/etc/sysctl.d/local.conf`, is enough.)
+
+- Create init.d service. (See [here](6. Creating new services.txt))
+

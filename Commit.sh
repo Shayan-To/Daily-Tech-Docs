@@ -1,3 +1,4 @@
+#!/bin/bash
 git add --all && \
 git commit --message "Commit." --quiet && \
 git show HEAD --oneline --stat && \
