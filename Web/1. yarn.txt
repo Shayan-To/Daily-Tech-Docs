@@ -1,0 +1,6 @@
+Mostly from https://yarnpkg.com/getting-started/install.
+
+- Install node >= 16.9 or >= v14.19.
+- `corepack enable`
+- Run `yarn set version stable` in an empty folder and see the version in the output.
+- `corepack prepare --activate yarn@VERSION` (with the exact version from above.)
