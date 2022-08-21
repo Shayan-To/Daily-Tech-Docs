@@ -15,5 +15,11 @@ From https://github.com/shadowsocks/shadowsocks/tree/master.
 
 - Optimize by following https://github.com/shadowsocks/shadowsocks/wiki/Optimizing-Shadowsocks. (Doing the first part, creating `/etc/sysctl.d/local.conf`, is enough.)
 
-- Create init.d service. (See [here](6. Creating new services.txt))
+  - Create `/etc/sysctl.d/local.conf` (it's available beside this file).
+  - Run `sysctl --system`.
+  - Add `ulimit -n 51200` to the init script of shadowsocks (see below).
+
+- Create systemctl service. (See [here](6. Creating new services.txt))
+
+  - Don't forget to add `ulimit -n 51200` before start.
 

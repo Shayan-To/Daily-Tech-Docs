@@ -1,7 +1,28 @@
 In the name of God
 
-1. Create a script with the special header (see the template) which accepts at least 'start' and 'stop' arguments. Don't put '.sh' at the end.
+From https://medium.com/@comodo.pines/how-to-create-custom-linux-service-using-systemctl-and-enable-it-to-accept-an-argument-8b9a570134e9.
+And from https://fedoramagazine.org/systemd-getting-a-grip-on-units/.
+Ref: https://www.freedesktop.org/software/systemd/man/systemd.unit.html (and: systemd.service.html systemd.exec.html)
 
-2. Register the service by running `update-rc.d SERVICE_NAME defaults`.
+- Create `<name>.service` at `/etc/systemd/system` with content:
 
-(service and new-service are downloaded and are only there for reference)
+```
+[Unit]
+After=network.target multi-user.target
+
+[Service]
+#User=root
+ExecStart=<COMMAND>
+Type=exec
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+```
+
+- `systemctl daemon-reload`
+- `systemctl start <name>` to test, and start.
+- `systemctl status <name>` to see the status.
+- `systemctl enable <name>` to start with system boot.
+
