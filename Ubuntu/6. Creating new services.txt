@@ -22,7 +22,7 @@ WantedBy=multi-user.target
 ```
 
 - `systemctl daemon-reload`
-- `systemctl start <name>` to test, and start.
-- `systemctl status <name>` to see the status.
-- `systemctl enable <name>` to start with system boot.
+- `systemctl start <name>.service` to test, and start.
+- `systemctl status <name>.service` to see the status.
+- `systemctl enable <name>.service` to start with system boot.
 
