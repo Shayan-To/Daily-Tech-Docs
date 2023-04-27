@@ -1,0 +1,39 @@
+In the name of God
+
+# csf
+
+Php/DirectAdmin firewall
+
+Disable: `sudo csf -x`
+
+
+# ufw
+
+`ufw default allow`
+`ufw enable`
+`ufw status numbered`
+
+# iptables
+
+List all rules (raw): `iptables -S` `ip6tables -S`
+List all rules: `iptables -L` `ip6tables -L`
+verbose: `-v`
+numeric: `-n`
+
+(Also: https://unix.stackexchange.com/questions/205867/viewing-all-iptables-rules)
+
+Clear every rule:
+
+```
+iptables -P INPUT ACCEPT
+iptables -P FORWARD ACCEPT
+iptables -P OUTPUT ACCEPT
+iptables -t nat -F
+iptables -t mangle -F
+iptables -t raw -F
+iptables -F
+iptables -t raw -X
+iptables -X
+```
+
+(Repeat with `ip6tables`. From https://serverfault.com/questions/200635/best-way-to-clear-all-iptables-rules, https://unix.stackexchange.com/questions/13755/how-to-reset-all-iptables-settings)
