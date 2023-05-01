@@ -12,3 +12,5 @@ openssh-server
 openssh-client
 ncdu
 python-is-python3
+
+For copying: apt install bash-completion command-not-found byobu atool arc arj lzip lzop nomarch p7zip-full rar rpm unace unalz unrar aptitude build-essential git ncdu python-is-python3

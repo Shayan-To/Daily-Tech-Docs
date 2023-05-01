@@ -5,35 +5,30 @@ From https://lani78.com/2008/08/08/generate-a-ssh-key-and-disable-password-authe
 1. Generate keys
 ssh-keygen
 
-2. Add the public key to the server
-The hard way:
-scp ~/.ssh/id_rsa.pub parmyn:~
-ssh parmyn
-	cat ~/id_rsa.pub >> ~/.ssh/authorized_keys
-	rm ~/id_rsa.pub
-
-Or easier:
+2. Add the public key to the server:
 cat ~/.ssh/id_rsa.pub | ssh parmyn 'cat - >> ~/.ssh/authorized_keys'
 
-3. Ensure key authentication is enabled
+Or:
+ssh-copy-id -i id_rsa parmyn
+
+3. Ensure key authentication is enabled. (it usually is, can be skipped!)
 nano /etc/ssh/sshd_config
 
-These have to be 'yes'.
+This has to be 'yes':
 
-RSAAuthentication yes
 PubkeyAuthentication yes
 
-service ssh reload
+systemctl restart sshd.service
 
 4. Disconnect and reconnect. No password should be requested.
 
 5. Disable password authentication
 nano /etc/ssh/sshd_config
 
-These have to be 'no'.
+These have to be 'no':
 
-ChallengeResponseAuthentication no
 PaswordAuthentication no
+KbdInteractiveAuthentication no
 UsePAM no
 
-service ssh reload
+systemctl restart sshd.service
