@@ -1,0 +1,12 @@
+In the name of God
+
+- Parent folder of repo
+  - ssh-keygen -b 8192 OR ssh-keygen -t ed25519
+  - Copy the public key.
+- Github, secondary account:
+  - Settings -> SSH and ... keys (https://github.com/settings/keys)
+  - Paste!
+- Config repo:
+  - Update remote url: git remote set-url origin git@github.com:USER/REPO.git
+  - Set config: git config core.sshcommand 'ssh -i ../SSH_KEY'
+- Or clone repo: git clone -c core.sshcommand='ssh -i ../SSH_KEY' git@github.com:USER/REPO.git
