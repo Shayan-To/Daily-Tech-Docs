@@ -3,6 +3,10 @@ In the name of God
 bash-completion		# problems: `cp /etc/skel/.bashrc ~/`
 command-not-found
 byobu			# enable by `byobu-enable` and disable unicode by `/usr/lib/byobu/include/toggle-utf8`.
+software-properties-common
+curl
+wget
+nano
 atool			# the archiver (suggested packages: arc arj lzip lzop nomarch p7zip-full rar rpm unace unalz unrar)
 wajig			# the package manager
 aptitude		# package manager, dependency conflict resolver
@@ -13,4 +17,11 @@ openssh-client
 ncdu
 python-is-python3
 
-For copying: apt install bash-completion command-not-found byobu atool arc arj lzip lzop nomarch p7zip-full rar rpm unace unalz unrar aptitude build-essential git ncdu python-is-python3
+# For copying
+
+apt install bash-completion command-not-found byobu software-properties-common
+byobu enable
+cp /etc/skel/.bashrc ~/
+exit and reconnect
+apt-add-repository multiverse
+apt install curl wget nano atool arc arj lzip lzop nomarch p7zip-full rar rpm unace unalz unrar aptitude build-essential git ncdu python-is-python3

@@ -1,0 +1,16 @@
+In the name of God
+
+- Download from https://windows.php.net/download/ and extract.
+- Copy php.ini-development to php.ini.
+  - Add `PHP_INSTALL_DIR = "D:/Program_Files/php-8.2.1-Win32-vs16-x64"`.
+  - Uncomment `extension_dir = "ext"`.
+  - Uncomment all extensions except for: oci8_12c oci8_19 pdo_firebird pdo_oci snmp
+- Download cacert: `curl --etag-compare etag.txt --etag-save etag.txt --remote-name https://curl.se/ca/cacert.pem`
+- `php.ini`:
+  - curl.cainfo = "${PHP_INSTALL_DIR}/cacert.pem"
+  - openssl.cafile = "${PHP_INSTALL_DIR}/cacert.pem"
+- Install composer:
+  - Go to an empty directory.
+  - curl -L https://github.com/composer/getcomposer.org/raw/main/web/installer -o installer.php
+  - php .\installer.php
+  - Add `composer.bat` file to path with `@php "%~dp0..\php-composer\%~n0.phar" %*`.

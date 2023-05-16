@@ -5,18 +5,22 @@ From https://lani78.com/2008/08/08/generate-a-ssh-key-and-disable-password-authe
 1. Generate keys
 ssh-keygen -b 8192
 OR
-ssh-keygen -t ed25519
+ssh-keygen -t ecdsa
 
 2. Add the public key to the server:
+
+ssh parmyn 'mkdir ~/.ssh && touch ~/.ssh/authorized_keys && chmod 700 ~/.ssh && chmod 600 ~/.ssh/authorized_keys'
+
+(DON'T SEND THE PRIVATE KEY TO THE SERVER. USE .pub FILE.)
 cat ~/.ssh/id_rsa.pub | ssh parmyn 'cat - >> ~/.ssh/authorized_keys'
 
 Or:
 ssh-copy-id -i id_rsa parmyn
 
-3. Ensure key authentication is enabled. (it usually is, can be skipped!)
+3. Ensure key authentication is enabled.
 nano /etc/ssh/sshd_config
 
-This has to be 'yes':
+Find and set this:
 
 PubkeyAuthentication yes
 
@@ -27,10 +31,21 @@ systemctl restart sshd.service
 5. Disable password authentication
 nano /etc/ssh/sshd_config
 
-These have to be 'no':
+Find and set these:
 
+PermitRootLogin prohibit-password
 PaswordAuthentication no
 KbdInteractiveAuthentication no
 UsePAM no
 
 systemctl restart sshd.service
+
+# Debug
+
+ssh -v parmyn
+ssh -vvv parmyn
+
+nano /etc/ssh/sshd_config:
+    LogLevel DEBUG
+systemctl restart sshd.service
+less /var/log/auth.log
