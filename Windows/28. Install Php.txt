@@ -2,7 +2,7 @@ In the name of God
 
 - Download from https://windows.php.net/download/ and extract.
 - Copy php.ini-development to php.ini.
-  - Add `PHP_INSTALL_DIR = "D:/Program_Files/php-8.2.1-Win32-vs16-x64"`.
+  - Add `PHP_INSTALL_DIR = "D:/Program_Files/php-8.2.1-Win32-vs16-x64"` to use for relative paths.
   - Uncomment `extension_dir = "ext"`.
   - Uncomment all extensions except for: oci8_12c oci8_19 pdo_firebird pdo_oci snmp
 - Download cacert: `curl --etag-compare etag.txt --etag-save etag.txt --remote-name https://curl.se/ca/cacert.pem`
