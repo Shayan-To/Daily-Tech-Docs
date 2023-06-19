@@ -21,7 +21,7 @@ python-is-python3
 
 apt install bash-completion command-not-found byobu software-properties-common
 byobu enable
-cp /etc/skel/.bashrc ~/
+cp /etc/skel/* /etc/skel/.??* ~/
 exit and reconnect
 apt-add-repository multiverse
 apt install curl wget nano atool arc arj lzip lzop nomarch p7zip-full rar rpm unace unalz unrar aptitude build-essential git ncdu python-is-python3

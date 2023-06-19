@@ -1,0 +1,15 @@
+In the name of God
+
+- Extract portable dotnet into a folder.
+- Create a `sh` file with this content inside:
+
+```
+cd dotnet-*-*-*-*
+export DOTNET_ROOT=$PWD
+export PATH=$PWD:$PATH
+cd ..
+pushd ~/.dotnet/tools > /dev/null
+export PATH=$PATH:$PWD
+popd > /dev/null
+bash
+```
