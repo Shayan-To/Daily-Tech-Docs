@@ -1,0 +1,21 @@
+In the name of God
+
+- Generate cert:
+
+```
+apt install openssl-tools openssl openssl-1.1
+openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -sha256 -days 256 -nodes`
+```
+
+- Run `http-server`:
+
+```
+http-server -S -C cert.pem -K key.pem
+```
+
+- If an error occurred that `libcrypto.so.1.1` is not found, then:
+
+```
+cd usr/lib/
+ln -s openssl-1.1/*.1.1 .
+```
