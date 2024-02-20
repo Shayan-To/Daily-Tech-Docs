@@ -10,6 +10,8 @@ In the name of God
 
 3.1. Computer Configuration\Administrative Templates\Windows Components\Windows Update\Configure Automatic Updates
 
+3.2. Computer Configuration\Administrative Templates\Windows Components\Windows Update\Display options for update notifications
+
 4. Computer Configuration\Windows Settings\Security Settings\Local Policies\User Right Assignment\Create a symbolic link (Add everyone and yourself)
 
 5. User Configuration\Administrative Templates\Desktop\Turn off Aero Shake window minimizing gesture
