@@ -25,7 +25,7 @@ init()
 
 edit_index()
 {
-	git-cat-file blob ":./$file" > "$temp_dir/$file_name" || {
+	git cat-file blob ":./$file" > "$temp_dir/$file_name" || {
 		clean_up
 		die "Error reading the file from index."
 	}
@@ -41,7 +41,7 @@ edit_index()
 	}
 	cp -f "$temp_dir/$file_name" "./$file" || die "Error replacing the changed file."
 
-	git-add "./$file" || die "Error staging the change."
+	git add "./$file" || die "Error staging the change."
 
 	[ $exists = 1 ] && {
 		cp "$temp_dir/$file_name.orig" "./$file" || die "Error reverting the working tree."
