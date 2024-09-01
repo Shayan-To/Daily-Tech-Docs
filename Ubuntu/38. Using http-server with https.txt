@@ -4,7 +4,7 @@ In the name of God
 
 ```
 apt install openssl-tools openssl openssl-1.1
-openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -sha256 -days 256 -nodes`
+openssl req -x509 -newkey rsa:4096 -keyout key.pem -out cert.pem -sha256 -days 256 -nodes
 ```
 
 - Run `http-server`:
