@@ -1,0 +1,1 @@
+Pwsh -NoProfile -Command "Start-Process -Verb RunAs Pwsh '-NoProfile -Command ""Get-NetAdapter | % { $_ | Out-Host; $_ } | Set-DnsClientServerAddress -ResetServerAddresses -ErrorAction Continue; Pause""'"
