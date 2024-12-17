@@ -17,12 +17,20 @@ openssh-client
 ncdu
 python-is-python3
 
-# For copying
+
+For copying
+===========
 
 apt install bash-completion command-not-found byobu software-properties-common
+
 shopt -s dotglob
 cp /etc/skel/* ~/
 byobu-enable
-exit and reconnect
+
+# exit and reconnect
+
+# Fix stupid non-sense at ssh connection
+echo -e '\nset-option -sg escape-time 10' >> $BYOBU_CONFIG_DIR/.tmux.conf
+
 apt update
 apt install curl wget nano atool arc arj lzip lzop nomarch p7zip-full rar rpm unace unalz unrar aptitude build-essential git ncdu python-is-python3
