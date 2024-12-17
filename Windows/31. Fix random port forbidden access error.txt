@@ -1,0 +1,29 @@
+In the name of God
+
+From:
+    - Search "An attempt was made to access a socket in a way forbidden by its access permissions"
+    - Search "netsh interface ipv4 show excludedportrange"
+    - https://pomeroy.me/2020/09/solved-windows-10-forbidden-port-bind/
+
+- Open "Process Monitor".
+- Set filter to:
+  - Include: Operation is RegSetValue
+  - Include: Operation is RegDeleteValue
+  - Include: ProcessName is netsh.exe
+- Run in an admin terminal:
+  - `netsh interface ipv4 add excludedportrange protocol=tcp startport=32000 numberofports=1 store=persistent`
+  - `netsh interface ipv4 add excludedportrange protocol=udp startport=32000 numberofports=1 store=persistent`
+- See ProcMon, copy the registry path.
+  - Mine were these:
+  - `HKLM\System\CurrentControlSet\Control\Nsi\{eb004a03-9b1a-11d4-9123-0050047759bc}\29\7d000100`
+  - `HKLM\System\CurrentControlSet\Control\Nsi\{eb004a02-9b1a-11d4-9123-0050047759bc}\5\7d000100`
+- The pattern is this:
+  - The whole key (folder / path) is constant, only depenting on protocol (tcp / udp), seemingly.
+  - There are binary values.
+  - The value data is constant (`12 00 ff ff`).
+  - The value name contains both the start point and the number of ports.
+    - If value name is `ABCDEFGH`, then `0xABCD` is the start point, and `0xGHEF` (note the reordering) is the number of ports.
+- So to change the range to [1, 20000], rename the binary value to `0001204e` (0x0001 = 1, 0x4e20 = 20000).
+- Restart and check:
+  - `netsh interface ipv4 show excludedportrange protocol=tcp`
+  - `netsh interface ipv4 show excludedportrange protocol=udp`
